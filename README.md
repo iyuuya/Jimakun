@@ -46,3 +46,8 @@ TODO
 * コマンドラインオプション周辺の整備
 * デモちゃんと撮り直す
 * ...
+
+Contributing
+------------
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/iyuuya/Jimakun.
