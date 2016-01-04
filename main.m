@@ -22,7 +22,10 @@ void printUsage(void)
 
 void printFontNames(void)
 {
-  NSLog(@"%@",[[[NSFontManager sharedFontManager] availableFonts] description]);
+  for (NSString *font_name in [[NSFontManager sharedFontManager] availableFonts]) {
+    printf("%s\n",
+        [font_name cStringUsingEncoding:NSUTF8StringEncoding]);
+  }
 }
 
 int main(int argc, const char * argv[])
