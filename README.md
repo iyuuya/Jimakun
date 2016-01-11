@@ -34,13 +34,17 @@ Usage
 -----
 
 ```
-jimakun messages [color_code] [edge_color_code] [thickness] [font_name font_size]
+jimakun [OPTIONS] [MESSAGES]
 
-jimakun "Hello World"
-jimakun "Red Character" FF0000
-jimakun "Blue Edge" FF0000 0000FF
+Set Options:
+  -c --color [RRGGBB]      set subtitle color
+  -e --edge-color [RRGGBB] set subtitle edge color
+  -t --thickness [N]       set thickness(N:0-20)
+  -f --font [NAME SIZE]    set font name and size
 
-jimakun -f # Show names of font
+Helper Options:
+  -h --help                show this message
+     --font-names        -- show font names
 ```
 
 Demo
