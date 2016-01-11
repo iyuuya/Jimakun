@@ -1,5 +1,7 @@
 CC=clang # or gcc
 
+PREFIX=~/
+
 FRAMEWORKS:= -framework Foundation -framework AppKit
 LIBRARIES:= -lobjc
 
@@ -16,3 +18,6 @@ clean:
 	rm -rf $(TARGET).dSYM
 allclean: clean
 	rm $(TARGET)
+install: all
+	mkdir -p $(PREFIX)/bin
+	cp $(TARGET) $(PREFIX)/bin/jimakun
