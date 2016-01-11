@@ -18,6 +18,7 @@ clean:
 	rm -rf $(TARGET).dSYM
 allclean: clean
 	rm $(TARGET)
+	rm *.zip
 install: all
 	mkdir -p $(PREFIX)/bin
 	cp $(TARGET) $(PREFIX)/bin/jimakun
@@ -27,3 +28,4 @@ package: all
 	cp README.md jimakun-$(VERSION)/
 	cp LICENSE.txt jimakun-$(VERSION)/
 	zip -r jimakun.zip jimakun-$(VERSION)
+	rm -rf jimakun-$(VERSION)
