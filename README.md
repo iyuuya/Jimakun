@@ -12,8 +12,17 @@ Requirements
 
 * Xcode CommandLine Tools
 
-Build
------
+Install
+-------
+
+### Homebrew
+
+```sh
+$ brew tap iyuuya/Jimakun
+$ brew install --HEAD jimakun
+```
+
+### Self Build
 
 ```sh
 $ git clone https://github.com/iyuuya/Jimakun.git
