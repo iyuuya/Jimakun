@@ -16,6 +16,9 @@ void printUsage(void)
     "  -h --help                show this message\n"
     "     --font-names        -- show font names\n"
     "\n"
+    "Other Options:\n"
+    "  -q --quit                terminate application\n"
+    "\n"
   );
 }
 
@@ -56,8 +59,9 @@ int main(int argc, const char *argv[])
     [arguments removeLastObject];
     argc--;
 
-    if ([delegate.options[@"subtitle"] length] == 0)
+    if ([arguments containsObject:@"-q"] || [arguments containsObject:@"--quit"]) {
       delegate.options[@"terminate"] = @"QUIT";
+    }
 
     NSUInteger idx = -1;
 
