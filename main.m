@@ -14,7 +14,7 @@ void printUsage(void)
     "\n"
     "Helper Options:\n"
     "  -h --help                show this message\n"
-    "     --font-names        -- show font names\n"
+    "     --font-names          show font names\n"
     "\n"
     "Other Options:\n"
     "  -q --quit                terminate application\n"
