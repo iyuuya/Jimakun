@@ -55,4 +55,38 @@
   [self.text drawAtPoint:NSMakePoint(0, 0) withAttributes:self.attributes];
 }
 
+#pragma mark - Menu and Action
+
++ (NSMenu *)defaultMenu
+{
+  NSMenu *menu = [[[NSMenu alloc] initWithTitle: @"MYLabelMenu"] autorelease];
+  [menu addItemWithTitle: @"字幕を変更" action: @selector(showTextDialog:) keyEquivalent: @"m"];
+  [menu addItemWithTitle: @"文字の色を変更" action: @selector(showColorDialog:) keyEquivalent: @"c"];
+  [menu addItemWithTitle: @"文字の縁の色を変更" action: @selector(showEdgeColorDialog:) keyEquivalent: @"e"];
+  [menu addItemWithTitle: @"フォントを変更" action: @selector(showFontDialog:) keyEquivalent: @"f"];
+  [menu addItem: [NSMenuItem separatorItem]];
+  [menu addItemWithTitle: @"終了" action: @selector(terminate:) keyEquivalent: @"q"];
+  return menu;
+}
+
+- (void)showTextDialog:(id)sender
+{
+  NSLog(@"TODO: show text dialog");
+}
+
+- (void)showColorDialog:(id)sender
+{
+  NSLog(@"TODO: show color dialog");
+}
+
+- (void)showEdgeColorDialog:(id)sender
+{
+  NSLog(@"TODO: show edge color dialog");
+}
+
+- (void)showFontDialog:(id)sender
+{
+  NSLog(@"TODO: show font dialog");
+}
+
 @end
