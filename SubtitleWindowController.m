@@ -11,6 +11,7 @@
 {
   self = [self initWithWindow: [[NSWindow alloc] init]];
   self.label = [[MYLabel alloc] init];
+  [self.label setParentWindowController: self];
   [self.window.contentView addSubview:self.label];
   self.window.allowsToolTipsWhenApplicationIsInactive = NO;
   self.window.autorecalculatesKeyViewLoop = NO;

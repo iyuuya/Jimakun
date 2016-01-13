@@ -1,6 +1,11 @@
 #import <Cocoa/Cocoa.h>
 
+@class SubtitleWindowController;
+
 @interface MYLabel : NSView
+{
+  SubtitleWindowController *parentWindowController;
+}
 
 @property (nonatomic, strong) NSFont *font;
 @property (nonatomic, assign) CGFloat thickness;
@@ -10,5 +15,6 @@
 
 - (void)updateAttributes;
 - (NSSize)getSize;
+- (void)setParentWindowController:(SubtitleWindowController *)wc;
 
 @end

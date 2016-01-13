@@ -1,3 +1,4 @@
+#import "SubtitleWindowController.h"
 #import "MYLabel.h"
 
 @interface MYLabel ()
@@ -7,6 +8,11 @@
 @end
 
 @implementation MYLabel
+
+- (void)setParentWindowController:(SubtitleWindowController *)wc
+{
+  parentWindowController = wc;
+}
 
 #pragma mark - Initialize
 
@@ -96,17 +102,45 @@
 
 - (void)showColorDialog:(id)sender
 {
-  NSLog(@"TODO: show color dialog");
+  NSColorPanel *colorPanel = [NSColorPanel sharedColorPanel];
+  [colorPanel setTarget:self];
+  [colorPanel setAction:@selector(changeColor:)];
+  [colorPanel makeKeyAndOrderFront:self.window];
+}
+
+- (void)changeColor:(NSColorPanel *)sender
+{
+  self.color = sender.color;
+  [self updateAttributes];
 }
 
 - (void)showEdgeColorDialog:(id)sender
 {
-  NSLog(@"TODO: show edge color dialog");
+  NSColorPanel *colorPanel = [NSColorPanel sharedColorPanel];
+  [colorPanel setTarget:self];
+  [colorPanel setAction:@selector(changeEdgeColor:)];
+  [colorPanel makeKeyAndOrderFront:self.window];
+}
+
+- (void)changeEdgeColor:(NSColorPanel *)sender
+{
+  self.edge_color = sender.color;
+  [self updateAttributes];
 }
 
 - (void)showFontDialog:(id)sender
 {
-  NSLog(@"TODO: show font dialog");
+  NSFontManager *fontManager = [NSFontManager sharedFontManager];
+  [fontManager setTarget:self];
+  [fontManager orderFrontFontPanel:self];
+}
+
+- (void)changeFont:(id)sender
+{
+  self.font = [sender convertFont: self.font];
+  [self updateAttributes];
+  [self updateLayer];
+  [parentWindowController resizeWindow];
 }
 
 @end
