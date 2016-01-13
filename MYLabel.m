@@ -68,7 +68,6 @@
 - (NSMenu *)createMenu
 {
   NSMenu *menu = [[[NSMenu alloc] initWithTitle: @"MYLabelMenu"] autorelease];
-  [menu addItemWithTitle: @"字幕を変更" action: @selector(showTextDialog:) keyEquivalent: @"m"];
   [menu addItemWithTitle: @"文字の色を変更" action: @selector(showColorDialog:) keyEquivalent: @"c"];
   [menu addItemWithTitle: @"文字の縁の色を変更" action: @selector(showEdgeColorDialog:) keyEquivalent: @"e"];
   [menu addItemWithTitle: @"フォントを変更" action: @selector(showFontDialog:) keyEquivalent: @"f"];
@@ -93,11 +92,6 @@
   [self updateAttributes];
   [self updateLayer];
   [parentWindowController resizeWindow];
-}
-
-- (void)showTextDialog:(id)sender
-{
-  NSLog(@"TODO: show text dialog");
 }
 
 - (void)showColorDialog:(id)sender
