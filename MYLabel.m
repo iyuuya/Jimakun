@@ -18,6 +18,7 @@
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [self setFrameOrigin: NSMakePoint(0.0, 0.0)];
     [self setFrameSize:   NSMakeSize(448.0, 223.0)];
+    self.menu = [self createMenu];
   }
 
   return self;
@@ -58,16 +59,34 @@
 
 #pragma mark - Menu and Action
 
-+ (NSMenu *)defaultMenu
+- (NSMenu *)createMenu
 {
   NSMenu *menu = [[[NSMenu alloc] initWithTitle: @"MYLabelMenu"] autorelease];
   [menu addItemWithTitle: @"字幕を変更" action: @selector(showTextDialog:) keyEquivalent: @"m"];
   [menu addItemWithTitle: @"文字の色を変更" action: @selector(showColorDialog:) keyEquivalent: @"c"];
   [menu addItemWithTitle: @"文字の縁の色を変更" action: @selector(showEdgeColorDialog:) keyEquivalent: @"e"];
   [menu addItemWithTitle: @"フォントを変更" action: @selector(showFontDialog:) keyEquivalent: @"f"];
+
+  NSMenuItem *sliderItem = [[[NSMenuItem alloc] initWithTitle:@"sliderItem" action:nil keyEquivalent:@""] autorelease];
+  NSSlider *slider = [[[NSSlider alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)] autorelease];
+  [slider setMinValue:0.0f];
+  [slider setMaxValue:1.0f];
+  [slider setDoubleValue: 0.3];
+  [slider setTarget: self];
+  [slider setAction: @selector(changeThickness:)];
+  [sliderItem setView:slider];
+	[menu addItem:sliderItem];
   [menu addItem: [NSMenuItem separatorItem]];
   [menu addItemWithTitle: @"終了" action: @selector(terminate:) keyEquivalent: @"q"];
   return menu;
+}
+
+- (void)changeThickness:(NSSlider *)slider
+{
+  self.thickness = slider.doubleValue;
+  [self updateAttributes];
+  [self updateLayer];
+  [parentWindowController resizeWindow];
 }
 
 - (void)showTextDialog:(id)sender
