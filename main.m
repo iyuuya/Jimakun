@@ -55,13 +55,13 @@ int main(int argc, const char *argv[])
     NSApplication *app = [NSApplication sharedApplication];
     AppDelegate *delegate = [[AppDelegate alloc] init];
 
-    delegate.options = [@{@"subtitle": [arguments lastObject]} mutableCopy];
-    [arguments removeLastObject];
-    argc--;
-
+    delegate.options = [@{@"subtitle": @""} mutableCopy];
     if ([arguments containsObject:@"-q"] || [arguments containsObject:@"--quit"]) {
       delegate.options[@"terminate"] = @"QUIT";
+    } else  {
+      delegate.options[@"subtitle"] = [arguments lastObject];
     }
+    argc--;
 
     NSUInteger idx = -1;
 
