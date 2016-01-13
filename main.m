@@ -102,8 +102,6 @@ int main(int argc, const char *argv[])
       }
     }
 
-    NSLog(@"%@", delegate.options);
-
     delegate.subtitle = [[SubtitleWindowController alloc] initWithText:delegate.options[@"subtitle"]];
     [delegate updateSubtitleAttributes: delegate.options];
 

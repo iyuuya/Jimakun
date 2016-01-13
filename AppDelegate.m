@@ -42,6 +42,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
   [_subtitle showWindow:self];
+
+  if ([self.options.allKeys containsObject:@"terminate"] && [self.options[@"terminate"] isEqualToString: @"QUIT"]) {
+    [NSApp terminate:self];
+  }
 }
 
 #pragma mark - NSNotification
