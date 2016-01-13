@@ -9,7 +9,7 @@ void printUsage(void)
     "Set Options:\n"
     "  -c --color [RRGGBB]      set subtitle color\n"
     "  -e --edge-color [RRGGBB] set subtitle edge color\n"
-    "  -t --thickness [N]       set thickness(N:0-20)\n"
+    "  -t --thickness [N]       set thickness(N:0.0-1.0)\n"
     "  -f --font [NAME SIZE]    set font name and size\n"
     "\n"
     "Helper Options:\n"
