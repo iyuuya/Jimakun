@@ -3,7 +3,7 @@
 @interface MYLabel : NSView
 
 @property (nonatomic, strong) NSFont *font;
-@property (nonatomic, assign) float thickness;
+@property (nonatomic, assign) CGFloat thickness;
 @property (nonatomic, strong) NSColor *color;
 @property (nonatomic, strong) NSColor *edge_color;
 @property (nonatomic, strong) NSString *text;

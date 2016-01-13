@@ -90,8 +90,8 @@
 {
   if (thickness < 0.0) {
     thickness = 0.0;
-  } else if (thickness > 20.0) {
-    thickness = 20.0;
+  } else if (thickness > 1.0) {
+    thickness = 1.0;
   }
 
   self.label.thickness = thickness;
@@ -115,7 +115,6 @@
   [self.label updateAttributes];
   [self.label updateLayer];
   [self resizeWindow];
-  self.label.needsDisplay = YES;
 }
 
 - (NSFont *)font

@@ -27,7 +27,7 @@
 
 - (void)setDefault
 {
-  self.thickness = 5.0;
+  self.thickness = 0.25;
   self.font = [NSFont fontWithName:@"HiraKakuStd-W8" size:36];
   self.color = [NSColor whiteColor];
   self.edge_color = [NSColor colorWithSRGBRed:0 green:0 blue:0.5 alpha:1];
@@ -40,7 +40,8 @@
   [self.attributes setObject: self.font forKey:NSFontAttributeName];
   [self.attributes setObject: self.color forKey:NSForegroundColorAttributeName];
   [self.attributes setObject: self.edge_color forKey:NSStrokeColorAttributeName];
-  [self.attributes setObject: [NSNumber numberWithFloat: -1*self.thickness] forKey:NSStrokeWidthAttributeName];
+  [self.attributes setObject: [NSNumber numberWithFloat: -0.5*self.thickness*self.font.pointSize] forKey:NSStrokeWidthAttributeName];
+  self.needsDisplay = YES;
 }
 
 - (NSSize)getSize
